@@ -121,7 +121,7 @@ The system remains overwhelmingly head-dominated even after removing dominant us
 ![User activity concentration](images/user_dominance_curve.png)
 
 ### Head vs tail exposure share (counterfactual removal)
-![Head vs tail exposure share](images/head_tail_exposure_share.png)
+![Head vs tail exposure share](images/head_tail_exposure.png)
 
 ### Tail survival (catalog coverage)
 ![Tail survival](images/tail_survival.png)
