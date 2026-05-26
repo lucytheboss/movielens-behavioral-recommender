@@ -1,4 +1,3 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import Optional
@@ -46,10 +45,10 @@ class MatrixFactorization:
         self.patience = patience
         self.random_state = random_state
 
-        self.P: Optional[np.ndarray] = None   # (n_users, n_factors)
-        self.Q: Optional[np.ndarray] = None   # (n_items, n_factors)
-        self.b_u: Optional[np.ndarray] = None  # (n_users,)
-        self.b_i: Optional[np.ndarray] = None  # (n_items,)
+        self.P: np.ndarray = np.empty(0)   # (n_users, n_factors) — initialised in fit()
+        self.Q: np.ndarray = np.empty(0)   # (n_items, n_factors)
+        self.b_u: np.ndarray = np.empty(0)  # (n_users,)
+        self.b_i: np.ndarray = np.empty(0)  # (n_items,)
         self.mu: float = 0.0                   # global mean
 
         self.train_losses: list = []
@@ -112,7 +111,7 @@ class MatrixFactorization:
 
                 if verbose:
                     print(f"Epoch {epoch+1:>3}/{self.n_epochs} | "
-                          f"Train RMSE: {train_loss:.4f} | Val RMSE: {val_loss:.4f}")
+                            f"Train RMSE: {train_loss:.4f} | Val RMSE: {val_loss:.4f}")
 
                 # early stopping
                 if val_loss < best_val_loss - 1e-4:
@@ -128,7 +127,7 @@ class MatrixFactorization:
                     if epochs_no_improve >= self.patience:
                         if verbose:
                             print(f"Early stopping at epoch {epoch+1} "
-                                  f"(best val RMSE {best_val_loss:.4f} at epoch {self.best_epoch})")
+                                    f"(best val RMSE {best_val_loss:.4f} at epoch {self.best_epoch})")
                         self.P, self.Q = best_P, best_Q
                         self.b_u, self.b_i = best_b_u, best_b_i
                         break

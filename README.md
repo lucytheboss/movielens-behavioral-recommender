@@ -22,7 +22,7 @@ Popularity bias is a structural property of interaction data, not a user behavio
 
 - Dataset: MovieLens 25M (~25M ratings, 162K users, 59K movies)
 - Method: Counterfactual user stratification (Quiet / Active / Power / Ultra / Extreme)
-- Key result: Top 20% of items receive ~80% of all ratings — and this holds regardless of which users are removed
+- Key result: Top 20% of items receive **98.26%** of all ratings — and this holds regardless of which users are removed
 
 ---
 
@@ -65,7 +65,7 @@ See [`docs/ab_test_design.md`](docs/ab_test_design.md) for full design.
 
 ```
 notebooks/
-  01_data_prep.ipynb              # data loading and preprocessing
+  01_load_and_validate.ipynb              # data loading and preprocessing
   02_user_behavior.ipynb          # Phase 1: counterfactual analysis
   03_matrix_factorization.ipynb   # Phase 2: MF implementation and training
   04_evaluation_metrics.ipynb     # Phase 2: RMSE, NDCG, coverage, LTE
